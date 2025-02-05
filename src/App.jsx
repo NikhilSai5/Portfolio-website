@@ -45,6 +45,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [scrollTriggered, setScrollTriggered] = useState(false);
   const [speed, setSpeed] = useState();
+  const [showScrollGif, setShowScrollGif] = useState(true);
 
   const handleComputerPointerEnter = () => {
     gsap.to(cameraRef.current.position, {
@@ -74,6 +75,7 @@ function App() {
     const handleScroll = (event) => {
       if (!scrollTriggered) {
         setScrollTriggered(true);
+        setShowScrollGif(false);
         const targetPosition = event.deltaY > 0 ? 200 : 0;
 
         if (cameraRef.current.position.z !== targetPosition) {
@@ -172,6 +174,17 @@ function App() {
           maxAzimuthAngle={Math.PI / 4}
         />
       </Canvas>
+
+      {showScrollGif && (
+        <div className="scroll-container">
+          <img
+            src="/images/scroll.gif"
+            alt="Scroll down"
+            width="100"
+            className="scroll"
+          />
+        </div>
+      )}
     </>
   );
 }

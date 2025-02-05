@@ -420,3 +420,18 @@ span {
 .aboutme-img1-container img {
   margin-left: 50px;
 }
+
+.scroll {
+  height: 35px;
+  width: 25px;
+}
+
+.scroll-container {
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 85%;
+  right: auto;
+  left: 50%;
+  transition: opacity 0.8s ease-out;
+}
