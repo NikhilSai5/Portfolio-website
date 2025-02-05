@@ -25,7 +25,7 @@ const Computer = ({
           // rotation={[0, Math.PI, 0]}
         >
           <iframe
-            src={`${window.location.origin}/portfolio`}
+            src="https://portfolio-website-eight-livid.vercel.app//portfolio"
             // src="https://github.com/NikhilSai5"
             onPointerEnter={handleComputerPointerEnter}
             onPointerLeave={handleComputerPointerLeave}
