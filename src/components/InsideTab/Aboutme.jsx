@@ -16,15 +16,18 @@ const Aboutme = () => {
             efficient solutions and am always excited to learn new technologies.
           </p>
           <div className="aboutme-img1-container">
-            <img src="/images/other.jpg" alt="" />
+            <img src="/images/o1.jpg" alt="" />
           </div>
         </div>
         <div className="aboutme-bottom flex flex-col ">
           <h1 className="achievements">Skills</h1>
+          <h2>Programming Languages - </h2>
+          <p>JavaScript,TypeScript , C/C++, Python</p>
+          <br />
           <h2>Web Development - </h2>
           <p>
             React, Nodejs, Express, Mongodb, Django, D3.js, React Three Fiber,
-            SQL, Prisma, Redis
+            SQL, Prisma, Redis, Tailwind CSS
           </p>
           <br />
           <h2>Blockchain</h2>
@@ -35,6 +38,9 @@ const Aboutme = () => {
           <br />
           <h2>Cloud</h2>
           <p>AWS, Google Cloud </p>
+          <br />
+          <h2>Tools</h2>
+          <p>Git/Github, Postman, Auth0, Docker </p>
           <br />
           <br />
           <h1 className="achievements">Achievements</h1>

@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useState, useEffect, useRef } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Sky, Text, PerspectiveCamera } from "@react-three/drei";
 import gsap from "gsap";
 import Background from "./components/Background/Background";
-
 import Astroid2 from "./components/3d-components/Astroid2";
 import Astroid3 from "./components/3d-components/Astroid3";
 import SpaceShip from "./components/3d-components/SpaceShip";
@@ -12,6 +11,7 @@ import SpaceShip2 from "./components/3d-components/SpaceShip2";
 import Computer from "./components/3d-components/Computer";
 import AstroidField from "./components/3d-components/AstroidField";
 import Ceres from "./components/3d-components/Ceres";
+import LoadingScreen from "./components/LoadingScreen";
 
 function CameraMovement({ cameraRef }) {
   const mouse = useRef({ x: 0, y: 0 });
@@ -42,13 +42,13 @@ function CameraMovement({ cameraRef }) {
 
 function App() {
   const cameraRef = useRef();
+  const [loading, setLoading] = useState(true);
   const [scrollTriggered, setScrollTriggered] = useState(false);
   const [speed, setSpeed] = useState();
 
   const handleComputerPointerEnter = () => {
     gsap.to(cameraRef.current.position, {
       z: 203.8,
-
       duration: 2,
       ease: "power2.out",
     });
@@ -57,12 +57,9 @@ function App() {
   const handleComputerPointerLeave = () => {
     gsap.to(cameraRef.current.position, {
       z: 200,
-
       duration: 2,
       ease: "Power2.out",
     });
-
-    // backtozero();
   };
 
   useEffect(() => {
@@ -77,7 +74,6 @@ function App() {
     const handleScroll = (event) => {
       if (!scrollTriggered) {
         setScrollTriggered(true);
-
         const targetPosition = event.deltaY > 0 ? 200 : 0;
 
         if (cameraRef.current.position.z !== targetPosition) {
@@ -92,9 +88,7 @@ function App() {
           },
         });
       }
-      console.log("scroll", event.deltaY);
     };
-    console.log("scroll", scrollTriggered);
 
     window.addEventListener("wheel", handleScroll, { passive: true });
 
@@ -103,17 +97,20 @@ function App() {
     };
   }, [scrollTriggered]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (cameraRef.current && cameraRef.current.position.z === 0) {
-      }
-    }, 100);
+  const loadModels = () => {
+    // Simulate model loading delay for demonstration
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Adjust this to match your model loading time
+  };
 
-    return () => clearInterval(interval);
+  useEffect(() => {
+    loadModels();
   }, []);
 
   return (
     <>
+      {loading && <LoadingScreen />}
       <Canvas>
         <PerspectiveCamera ref={cameraRef} position={[0, 0, 0]}>
           <CameraMovement cameraRef={cameraRef} />
@@ -124,7 +121,6 @@ function App() {
             inclination={0}
             distance={450000}
           />
-
           <Background scrollTriggered={scrollTriggered} speed={speed} />
           <group position={[0, 0, 0]}>
             <Text
@@ -157,7 +153,6 @@ function App() {
           <Astroid2 position={[-7, 1, -200]} />
           <Ceres position={[-100, -51, -180]} />
           <SpaceShip position={[-4.5, 4, -5]} />
-          {/* <Island position={[-150, -80, -300]} /> */}
           <Astroid3 position={[6, 3, -207]} />
           <SpaceStation position={[-54, 20, -240]} />
           <SpaceShip2 position={[6.5, -1.5, 0]} />
@@ -168,7 +163,6 @@ function App() {
           />
           <AstroidField position={[0, -3, -70]} />
         </PerspectiveCamera>
-
         <OrbitControls
           enableZoom={false}
           enablePan={false}

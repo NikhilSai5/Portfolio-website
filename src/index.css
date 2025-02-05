@@ -416,3 +416,7 @@ span {
   font-size: 18px;
   font-weight: bold;
 }
+
+.aboutme-img1-container img {
+  margin-left: 50px;
+}

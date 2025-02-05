@@ -8,7 +8,7 @@ import Games from "../components/OtherTab/Games";
 import Contactme from "../components/OtherTab/Contactme";
 
 const Portfolio = () => {
-  const [isAboutMeVisible, setIsAboutMeVisible] = useState(false);
+  const [isAboutMeVisible, setIsAboutMeVisible] = useState(true);
   const [isNotesVisible, setIsNotesVisible] = useState(false);
   const [isGamesVisible, setIsGamesVisible] = useState(false);
   const [isContactmeVisible, setIsContactmeVisible] = useState(false);
