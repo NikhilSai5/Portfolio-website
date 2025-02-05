@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sky, Text, PerspectiveCamera } from "@react-three/drei";
 import gsap from "gsap";
 import Background from "./components/Background/Background";
-import Island from "./components/3d-components/Island";
+
 import Astroid2 from "./components/3d-components/Astroid2";
 import Astroid3 from "./components/3d-components/Astroid3";
 import SpaceShip from "./components/3d-components/SpaceShip";
@@ -45,21 +45,9 @@ function App() {
   const [scrollTriggered, setScrollTriggered] = useState(false);
   const [speed, setSpeed] = useState();
 
-  //fix for the scroll back to z=0
-
-  const backtozero = (event) => {
-    if (event.deltaY < 0) {
-      gsap.to(cameraRef.current.position, {
-        z: 0,
-        duration: 6,
-        ease: "power2.out",
-      });
-    }
-  };
-
   const handleComputerPointerEnter = () => {
     gsap.to(cameraRef.current.position, {
-      z: 203.8, // Adjust the camera distance as needed
+      z: 203.8,
 
       duration: 2,
       ease: "power2.out",
@@ -74,7 +62,7 @@ function App() {
       ease: "Power2.out",
     });
 
-    backtozero();
+    // backtozero();
   };
 
   useEffect(() => {
@@ -92,9 +80,12 @@ function App() {
 
         const targetPosition = event.deltaY > 0 ? 200 : 0;
 
+        if (cameraRef.current.position.z !== targetPosition) {
+          setScrollTriggered(true);
+        }
         gsap.to(cameraRef.current.position, {
           z: targetPosition,
-          duration: 6,
+          duration: 4,
           ease: "power2.out",
           onComplete: () => {
             setScrollTriggered(false);

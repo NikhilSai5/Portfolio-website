@@ -1,43 +1,10 @@
-// import React from "react";
-// import Aboutme from "./Aboutme";
-// import Projects from "./Projects";
-// import Experience from "./Experience";
-
-// const Tab = () => {
-//   return (
-//     <>
-//       <div className="aboutme-window h-full">
-//         <div className="left-bar flex flex-col justify-between">
-//           <div className="left-top">
-//             <h1>Nikhil Sai</h1>
-//             <h1>Manam</h1>
-//             <p>Portfolio 2024</p>
-//           </div>
-//           <div className="left-bottom flex flex-col gap-2">
-//             <h2>About Me</h2>
-//             <h2>Projects</h2>
-//             <h2>Experience</h2>
-//           </div>
-//         </div>
-//         <div className="right-bar">
-//           <Aboutme />
-//           <Projects />
-//           <Experience />
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Tab;
-
 import React, { useState } from "react";
 import Aboutme from "./Aboutme";
 import Projects from "./Projects";
 import Experience from "./Experience";
 
 const Tab = () => {
-  const [activeTab, setActiveTab] = useState("about"); // Default tab
+  const [activeTab, setActiveTab] = useState("about");
 
   return (
     <>
@@ -47,7 +14,7 @@ const Tab = () => {
           <div className="left-top">
             <h1 className="text-xl font-bold">Nikhil Sai</h1>
             <h1 className="text-xl font-bold">Manam</h1>
-            <p className="text-sm opacity-75">Portfolio 2024</p>
+            <p className="text-sm opacity-75">Portfolio 2025</p>
           </div>
 
           {/* Navigation */}

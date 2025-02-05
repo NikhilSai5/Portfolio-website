@@ -8,6 +8,17 @@ const Contactme = () => {
       <span className="flex flex-row gap-3">
         <span className="email">Nikhilsaimanam5@gmail.com</span>
       </span>
+      <br />
+      <span>
+        Inspired by -{" "}
+        <a
+          href="https://henryheffernan.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          henry heffernan portfolio
+        </a>
+      </span>
     </div>
   );
 };
