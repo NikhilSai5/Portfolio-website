@@ -20,6 +20,23 @@ const Aboutme = () => {
           </div>
         </div>
         <div className="aboutme-bottom flex flex-col ">
+          <h1 className="achievements">Skills</h1>
+          <h2>Web Development - </h2>
+          <p>
+            React, Nodejs, Express, Mongodb, Django, D3.js, React Three Fiber,
+            SQL, Prisma, Redis
+          </p>
+          <br />
+          <h2>Blockchain</h2>
+          <p>Solidity, Ether.js, Alchemy API, IPFS </p>
+          <br />
+          <h2>AI/ML</h2>
+          <p>Python, Pandas, Numpy, OpenCV, Langchain </p>
+          <br />
+          <h2>Cloud</h2>
+          <p>AWS, Google Cloud </p>
+          <br />
+          <br />
           <h1 className="achievements">Achievements</h1>
           <span>
             <li>
