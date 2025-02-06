@@ -4,7 +4,9 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 
 const Ceres = ({ position }) => {
-  const { scene } = useGLTF("/3d-assets/ceres/ceres_v1.1/scene.gltf");
+  const { scene } = useGLTF(
+    "/3d-assets/ceres/ceres_v1.1/scene-compressed.gltf"
+  );
   const ceresRef = useRef();
 
   useFrame(() => {

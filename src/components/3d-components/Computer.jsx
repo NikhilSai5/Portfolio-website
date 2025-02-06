@@ -8,7 +8,7 @@ const Computer = ({
   handleComputerPointerEnter,
   handleComputerPointerLeave,
 }) => {
-  const { scene } = useGLTF("/3d-assets/tab.glb");
+  const { scene } = useGLTF("/3d-assets/tab-compressed.glb");
   return (
     <group position={position}>
       <primitive

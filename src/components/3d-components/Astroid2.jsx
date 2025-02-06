@@ -3,7 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 const Astroid2 = ({ position }) => {
-  const { scene } = useGLTF("/3d-assets/groupofastroids/asteroids/scene.gltf");
+  const { scene } = useGLTF(
+    "/3d-assets/groupofastroids/asteroids/scene-compressed.gltf"
+  );
   return (
     <group
       position={position}

@@ -5,7 +5,7 @@ import { useGLTF } from "@react-three/drei";
 
 const Astroid3 = ({ position }) => {
   const { scene } = useGLTF(
-    "/3d-assets/54509-yorp_asteroid_potential_earth_impactor.glb"
+    "/3d-assets/54509-yorp_asteroid_potential_earth_impactor-compressed.glb"
   );
   return (
     <group position={position} scale={[4, 4, 4]}>

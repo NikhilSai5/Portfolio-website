@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 const SpaceShip2 = ({ position }) => {
-  const { scene } = useGLTF("/3d-assets/spaceship3.glb");
+  const { scene } = useGLTF("/3d-assets/spaceship3-compressed.glb");
   const spaceshipRef = useRef();
 
   // Rotate the spaceship continuously on the X-axis
