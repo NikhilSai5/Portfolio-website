@@ -34,10 +34,15 @@
 body {
   font-family: "Satoshi", sans-serif;
 }
+.laptop {
+  transform-origin: 0 0; /* Prevents scaling issues */
+  zoom: 1 !important; /* Locks zoom at normal scale */
+  scale: 1 !important;
+}
 
 .laptop iframe {
-  width: 1210px;
-  height: 770px;
+  width: 1080px;
+  height: 690px;
 }
 
 .navbar-wrapper {
@@ -176,7 +181,7 @@ svg {
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 1100px;
+  width: 1000px;
   height: 550px;
   border-radius: 10px;
 }
@@ -434,4 +439,15 @@ span {
   right: auto;
   left: 50%;
   transition: opacity 0.8s ease-out;
+}
+
+.space-tab {
+  opacity: 1;
+}
+
+.iframe-container {
+  width: 1080px;
+  height: 690px;
+  transform: scale(1);
+  transform-style: preserve-3d;
 }

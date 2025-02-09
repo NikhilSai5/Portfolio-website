@@ -77,13 +77,14 @@ function App() {
         setScrollTriggered(true);
         setShowScrollGif(false);
         const targetPosition = event.deltaY > 0 ? 200 : 0;
+        const duration = event.deltaY > 0 ? 4 : 2;
 
         if (cameraRef.current.position.z !== targetPosition) {
           setScrollTriggered(true);
         }
         gsap.to(cameraRef.current.position, {
           z: targetPosition,
-          duration: 4,
+          duration: duration,
           ease: "power2.out",
           onComplete: () => {
             setScrollTriggered(false);
@@ -162,6 +163,7 @@ function App() {
             position={[0, -0.9, -200]}
             handleComputerPointerEnter={handleComputerPointerEnter}
             handleComputerPointerLeave={handleComputerPointerLeave}
+            cameraRef={cameraRef}
           />
           <AstroidField position={[0, -3, -70]} />
         </PerspectiveCamera>
