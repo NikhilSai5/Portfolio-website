@@ -1,1 +1,0 @@
-import{j as s}from"./vendor-9eQ61F9h.js";import{a as o}from"./threejs-DWDp_Bfe.js";const i=({position:t})=>{const{scene:e}=o("/3d-assets/groupofastroids/asteroids/scene-compressed.gltf");return s.jsx("group",{position:t,scale:.008,rotation:[-Math.PI/2,0,0],children:s.jsx("primitive",{object:e})})};export{i as default};

@@ -1,1 +1,0 @@
-import{j as s}from"./vendor-9eQ61F9h.js";import{a as r}from"./threejs-DWDp_Bfe.js";const i=({position:t})=>{const{scene:e}=r("/3d-assets/54509-yorp_asteroid_potential_earth_impactor-compressed.glb");return s.jsx("group",{position:t,scale:[4,4,4],children:s.jsx("primitive",{object:e})})};export{i as default};

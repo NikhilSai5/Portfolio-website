@@ -1,1 +1,0 @@
-import{j as s}from"./vendor-9eQ61F9h.js";import{a as t}from"./threejs-DWDp_Bfe.js";const a=({position:e})=>{const{scene:r}=t("/3d-assets/space_ship-compressed.glb");return s.jsx("group",{position:e,scale:[.045,.045,.045],children:s.jsx("primitive",{object:r})})};export{a as default};

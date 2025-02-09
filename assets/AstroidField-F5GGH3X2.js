@@ -1,1 +1,0 @@
-import{j as e}from"./vendor-9eQ61F9h.js";import{a as o}from"./threejs-DWDp_Bfe.js";const d=({position:s})=>{const{scene:t}=o("/3d-assets/AstroidField/asteroid_field_100_x_medium-poly/scene-compressed.gltf");return e.jsx("group",{position:s,scale:[3,3,3],children:e.jsx("primitive",{object:t})})};export{d as default};
