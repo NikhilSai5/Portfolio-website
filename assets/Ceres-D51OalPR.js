@@ -1,0 +1,1 @@
+import{r as c,j as s}from"./vendor-9eQ61F9h.js";import{a as o,u as a}from"./threejs-DWDp_Bfe.js";const i=({position:r})=>{const{scene:t}=o("/3d-assets/ceres/ceres_v1.1/scene-compressed.gltf"),e=c.useRef();return a(()=>{e.current&&(e.current.rotation.y+=.01)}),s.jsx("group",{ref:e,position:r,scale:.4,children:s.jsx("primitive",{object:t})})};export{i as default};

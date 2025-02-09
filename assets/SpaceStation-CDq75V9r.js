@@ -1,0 +1,1 @@
+import{j as s}from"./vendor-9eQ61F9h.js";import{a as o}from"./threejs-DWDp_Bfe.js";const i=({position:e})=>{const{scene:t}=o("/3d-assets/satellite-compressed.glb");return s.jsx("group",{position:e,scale:[.05,.05,.05],children:s.jsx("primitive",{object:t})})};export{i as default};
