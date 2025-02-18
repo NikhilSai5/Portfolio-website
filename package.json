@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://NikhilSai5.github.io/<Portfolio-website>",
+  "homepage": "https://NikhilSai5.github.io/Portfolio-website",
   "type": "module",
   "scripts": {
     "dev": "vite",
