@@ -9,5 +9,64 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Prevent keyboard zoom shortcuts
+      document.addEventListener("keydown", function (e) {
+        if (
+          (e.ctrlKey || e.metaKey) &&
+          (e.key === "+" || e.key === "=" || e.key === "-" || e.key === "0")
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Prevent mouse wheel zoom
+      document.addEventListener(
+        "wheel",
+        function (e) {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            return false;
+          }
+        },
+        { passive: false }
+      );
+
+      // Prevent pinch-to-zoom on touch devices
+      document.addEventListener(
+        "touchstart",
+        function (e) {
+          if (e.touches.length > 1) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      document.addEventListener(
+        "touchmove",
+        function (e) {
+          if (e.touches.length > 1) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      // Prevent double-tap zoom
+      let lastTouchEnd = 0;
+      document.addEventListener(
+        "touchend",
+        function (event) {
+          const now = new Date().getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        },
+        false
+      );
+    </script>
   </body>
 </html>
