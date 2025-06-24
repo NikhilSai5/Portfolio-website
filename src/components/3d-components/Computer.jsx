@@ -23,13 +23,13 @@ const Computer = ({
           position={[5.5, 10, 0]}
           transform
           billboard
+          occlude
           // rotation-x={0.25}
           // rotation={[0, Math.PI, 0]}
         >
           <div className="iframe-container">
             <iframe
               src={`${window.location.origin}/portfolio`}
-              // src="https://github.com/NikhilSai5"
               onPointerEnter={handleComputerPointerEnter}
               onPointerLeave={handleComputerPointerLeave}
               className="space-tab overflow-hidden "
