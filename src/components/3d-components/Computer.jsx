@@ -2,6 +2,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Html, OrbitControls, PresentationControls } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
+import Portfolio from "../../Pages/Portfolio";
 
 const Computer = ({
   position,
@@ -22,7 +23,6 @@ const Computer = ({
           wrapperClass="laptop "
           position={[5.5, 10, 0]}
           transform
-          billboard
           occlude
           // rotation-x={0.25}
           // rotation={[0, Math.PI, 0]}
@@ -35,6 +35,13 @@ const Computer = ({
               className="space-tab overflow-hidden "
             />
           </div>
+          {/* <div
+            className="space-tab overflow-hidden iframe-container"
+            onPointerEnter={handleComputerPointerEnter}
+            onPointerLeave={handleComputerPointerLeave}
+          >
+            <Portfolio />
+          </div> */}
         </Html>
       </primitive>
     </group>
