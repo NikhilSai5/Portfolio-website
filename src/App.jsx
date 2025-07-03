@@ -1,7 +1,8 @@
 // import React, { useState, useEffect, useRef } from "react";
-// import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+// import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 // import { OrbitControls, Sky, Text, PerspectiveCamera } from "@react-three/drei";
 // import gsap from "gsap";
+// import * as THREE from "three";
 // import Background from "./components/Background/Background";
 // import Astroid2 from "./components/3d-components/Astroid2";
 // import Astroid3 from "./components/3d-components/Astroid3";
@@ -38,6 +39,86 @@
 //   });
 
 //   return null;
+// }
+
+// function OrbitControlsWithReset({ cameraRef }) {
+//   const controlsRef = useRef();
+//   const { camera } = useThree();
+//   const defaultPosition = useRef(new THREE.Vector3(0, 0, 0));
+//   const defaultTarget = useRef(new THREE.Vector3(0, 0, 0));
+//   const isUserInteracting = useRef(false);
+//   const resetTimeout = useRef(null);
+
+//   useEffect(() => {
+//     if (controlsRef.current) {
+//       // Store default positions
+//       defaultPosition.current.copy(camera.position);
+//       defaultTarget.current.copy(controlsRef.current.target);
+
+//       const controls = controlsRef.current;
+
+//       const handleStart = () => {
+//         isUserInteracting.current = true;
+//         if (resetTimeout.current) {
+//           clearTimeout(resetTimeout.current);
+//           resetTimeout.current = null;
+//         }
+//       };
+
+//       const handleEnd = () => {
+//         isUserInteracting.current = false;
+
+//         // Set timeout to reset camera position after user stops interacting
+//         resetTimeout.current = setTimeout(() => {
+//           if (!isUserInteracting.current && controls) {
+//             // Animate camera back to default position
+//             gsap.to(camera.position, {
+//               x: defaultPosition.current.x,
+//               y: defaultPosition.current.y,
+//               z: defaultPosition.current.z,
+//               duration: 2,
+//               ease: "power2.out",
+//             });
+
+//             // Animate target back to default
+//             gsap.to(controls.target, {
+//               x: defaultTarget.current.x,
+//               y: defaultTarget.current.y,
+//               z: defaultTarget.current.z,
+//               duration: 1.5,
+//               ease: "power2.out",
+//               onUpdate: () => {
+//                 controls.update();
+//               },
+//             });
+//           }
+//         }, 1000); // Reset after 1 second of no interaction
+//       };
+
+//       controls.addEventListener("start", handleStart);
+//       controls.addEventListener("end", handleEnd);
+
+//       return () => {
+//         controls.removeEventListener("start", handleStart);
+//         controls.removeEventListener("end", handleEnd);
+//         if (resetTimeout.current) {
+//           clearTimeout(resetTimeout.current);
+//         }
+//       };
+//     }
+//   }, [camera]);
+
+//   return (
+//     <OrbitControls
+//       ref={controlsRef}
+//       enableZoom={false}
+//       enablePan={false}
+//       minPolarAngle={Math.PI / 4}
+//       maxPolarAngle={Math.PI / 2}
+//       minAzimuthAngle={-Math.PI / 4}
+//       maxAzimuthAngle={Math.PI / 4}
+//     />
+//   );
 // }
 
 // function App() {
@@ -184,14 +265,7 @@
 //           />
 //           <AstroidField position={[0, -3, -70]} />
 //         </PerspectiveCamera>
-//         <OrbitControls
-//           enableZoom={false}
-//           enablePan={false}
-//           minPolarAngle={Math.PI / 4}
-//           maxPolarAngle={Math.PI / 2}
-//           minAzimuthAngle={-Math.PI / 4}
-//           maxAzimuthAngle={Math.PI / 4}
-//         />
+//         <OrbitControlsWithReset cameraRef={cameraRef} />
 //       </Canvas>
 
 //       {showScrollGif && (
@@ -226,7 +300,7 @@ import AstroidField from "./components/3d-components/AstroidField";
 import Ceres from "./components/3d-components/Ceres";
 import LoadingScreen from "./components/LoadingScreen";
 
-function CameraMovement({ cameraRef }) {
+function CameraMovement({ cameraRef, isHoveringComputer }) {
   const mouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -240,7 +314,8 @@ function CameraMovement({ cameraRef }) {
   }, []);
 
   useFrame(() => {
-    if (cameraRef.current) {
+    // Only move camera if not hovering over computer
+    if (cameraRef.current && !isHoveringComputer) {
       gsap.to(cameraRef.current.position, {
         x: mouse.current.x * 0.3,
         y: -mouse.current.y * 0.1,
@@ -339,9 +414,11 @@ function App() {
   const [scrollTriggered, setScrollTriggered] = useState(false);
   const [speed, setSpeed] = useState();
   const [showScrollGif, setShowScrollGif] = useState(true);
-  const [cameraZPosition, setCameraZPosition] = useState(0); // Track camera Z position
+  const [cameraZPosition, setCameraZPosition] = useState(0);
+  const [isHoveringComputer, setIsHoveringComputer] = useState(false); // Add this state
 
   const handleComputerPointerEnter = () => {
+    setIsHoveringComputer(true); // Set hovering state to true
     gsap.to(cameraRef.current.position, {
       z: 203.8,
       duration: 2,
@@ -350,6 +427,7 @@ function App() {
   };
 
   const handleComputerPointerLeave = () => {
+    setIsHoveringComputer(false); // Set hovering state to false
     gsap.to(cameraRef.current.position, {
       z: 200,
       duration: 2,
@@ -426,7 +504,10 @@ function App() {
       {loading && <LoadingScreen />}
       <Canvas>
         <PerspectiveCamera ref={cameraRef} position={[0, 0, 0]}>
-          <CameraMovement cameraRef={cameraRef} />
+          <CameraMovement
+            cameraRef={cameraRef}
+            isHoveringComputer={isHoveringComputer}
+          />
           <Sky
             sunPosition={[0, 0, 0]}
             turbidity={10}

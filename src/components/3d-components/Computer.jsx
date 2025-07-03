@@ -21,9 +21,11 @@ const Computer = ({
       >
         <Html
           wrapperClass="laptop "
-          position={[5.5, 10, 0]}
+          position={[5.5, 10, 0.2]}
           transform
           occlude
+          distanceFactor={10}
+          center
           // rotation-x={0.25}
           // rotation={[0, Math.PI, 0]}
         >
