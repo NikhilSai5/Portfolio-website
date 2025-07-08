@@ -4,7 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 
 const SpaceStation = ({ position }) => {
-  const { scene } = useGLTF("/3d-assets/satellite-compressed.glb");
+  const { scene } = useGLTF("/3d-assets/satellite-compressed-1.glb");
   return (
     <group position={position} scale={[0.05, 0.05, 0.05]}>
       <primitive object={scene} />
