@@ -299,6 +299,7 @@ import Computer from "./components/3d-components/Computer";
 import AstroidField from "./components/3d-components/AstroidField";
 import Ceres from "./components/3d-components/Ceres";
 import LoadingScreen from "./components/LoadingScreen";
+import { Suspense } from "react";
 
 function CameraMovement({ cameraRef, isHoveringComputer }) {
   const mouse = useRef({ x: 0, y: 0 });
@@ -489,10 +490,9 @@ function App() {
   }, [scrollTriggered]);
 
   const loadModels = () => {
-    // Simulate model loading delay for demonstration
     setTimeout(() => {
       setLoading(false);
-    }, 3000); // Adjust this to match your model loading time
+    }, 300);
   };
 
   useEffect(() => {

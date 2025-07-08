@@ -4,7 +4,7 @@ import { Commet } from "react-loading-indicators";
 const LoadingScreen = () => {
   return (
     <div style={styles.overlay}>
-      <Commet color="#ffffff" size="large" text="" textColor="#000000" />
+      <Commet color="#ffffff" size="medium" text="" textColor="#000000" />
     </div>
   );
 };
