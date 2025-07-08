@@ -46,7 +46,7 @@ body {
 }
 
 .navbar-wrapper {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(50, 50, 50, 0.4);
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   height: 75px;
@@ -122,8 +122,8 @@ svg {
   text-align: center;
 }
 .aboutme img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .aboutme:active {
@@ -145,8 +145,8 @@ svg {
   text-align: center;
 }
 .games img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .games:active {
@@ -186,7 +186,7 @@ svg {
   border-radius: 10px;
 }
 .popup-header {
-  background: #f8f8f8;
+  background: #293f77;
   height: auto;
   padding-right: 10px;
   border-radius: 10px 10px 0 0;
@@ -241,6 +241,8 @@ svg {
 .cir {
   height: 10px;
   width: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .cir:hover {

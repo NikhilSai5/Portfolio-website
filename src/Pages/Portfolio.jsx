@@ -30,14 +30,31 @@ const Portfolio = () => {
   };
   return (
     <>
-      <div className="page-wrapper bg-[#B0E8F3] h-screen flex px-7">
+      <div className="page-wrapper bg-slate-900 h-screen flex px-7 text-white">
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(50)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-cyan-400 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${2 + Math.random() * 2}s`,
+                height: "3px",
+                width: "3px",
+              }}
+            />
+          ))}
+        </div>
+
         <div className="navbar-wrapper flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
             height="50"
             viewBox="0 0 16 16"
-            className="cursor-pointer"
+            className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125"
           >
             <path
               fill="currentColor"
@@ -56,7 +73,7 @@ const Portfolio = () => {
               width="50"
               height="50"
               viewBox="-2 -2 24 24"
-              className="cursor-pointer"
+              className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125"
             >
               <path
                 fill="currentColor"
@@ -74,6 +91,7 @@ const Portfolio = () => {
               width="256"
               height="256"
               viewBox="0 0 256 256"
+              className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125"
             >
               <g fill="none">
                 <rect width="256" height="256" fill="#fff" rx="60" />
@@ -96,7 +114,7 @@ const Portfolio = () => {
               width="50"
               height="50"
               viewBox="0 0 128 128"
-              className="cursor-pointer"
+              className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125"
             >
               <path
                 fill="#0076b2"
@@ -114,7 +132,7 @@ const Portfolio = () => {
             width="54.31"
             height="50"
             viewBox="0 0 24 24"
-            className="cursor-pointer"
+            className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-125"
             onClick={handleNotesClick}
           >
             <path
@@ -128,27 +146,38 @@ const Portfolio = () => {
             <img src="/images/google.png" alt="" />
             <p>Google</p>
           </div> */}
-          <div className="aboutme" onClick={handleAboutMeClick}>
-            <img src="/images/aboutme.png" alt="" />
+          <div className="aboutme cursor-pointer" onClick={handleAboutMeClick}>
+            <img src="/images/icons/computer_explorer-4.png" alt="" />
             <p>AboutMe</p>
           </div>
-          <div className="games">
-            <img src="/images/games.png" alt="" onClick={handleGamesMeClick} />
+          <div className="games cursor-pointer">
+            <img
+              src="/images/icons/game_freecell-2.png"
+              alt=""
+              onClick={handleGamesMeClick}
+            />
             <p>Games</p>
           </div>
-          <div className="notes">
-            <img src="/images/notes.png" alt="" onClick={handleNotesClick} />
+          <div className="notes cursor-pointer">
+            <img
+              src="/images/icons/write_wordpad-1.png"
+              alt=""
+              onClick={handleNotesClick}
+            />
             <p>Notes</p>
           </div>
-          <div className="contactme" onClick={handleContactmeClick}>
-            <img src="/images/contactme.png" alt="" />
+          <div
+            className="contactme cursor-pointer"
+            onClick={handleContactmeClick}
+          >
+            <img src="/images/icons/xml_gear-2.png" alt="" />
             <p>Contact Me</p>
           </div>
         </div>
       </div>
       {isAboutMeVisible && (
         <Draggable handle=".popup-header">
-          <div className="popup top-20 left-20 bg-white shadow-lg overflow-hidden">
+          <div className="popup resize top-20 left-20 bg-[white] shadow-lg overflow-hidden">
             <div className="popup-header cursor-grab flex flex-row gap-2 justify-end items-center ">
               <img
                 src="/images/yellow.png"
@@ -172,7 +201,7 @@ const Portfolio = () => {
 
       {isNotesVisible && (
         <Draggable handle=".popup-header">
-          <div className="popup top-24 left-24 bg-white shadow-lg overflow-hidden">
+          <div className="popup resize top-24 left-24 bg-white shadow-lg overflow-hidden">
             <div className="popup-header cursor-grab flex flex-row gap-2 justify-end items-center">
               <img
                 src="/images/yellow.png"
@@ -194,7 +223,7 @@ const Portfolio = () => {
 
       {isGamesVisible && (
         <Draggable handle=".popup-header">
-          <div className="popup top-24 left-24 bg-white shadow-lg overflow-hidden">
+          <div className="popup resize top-24 left-24 bg-white shadow-lg overflow-hidden">
             <div className="popup-header cursor-grab flex flex-row gap-2 justify-end items-center">
               <img
                 src="/images/yellow.png"
@@ -216,7 +245,7 @@ const Portfolio = () => {
 
       {isContactmeVisible && (
         <Draggable handle=".popup-header">
-          <div className="popup top-24 left-24 bg-white shadow-lg overflow-hidden">
+          <div className="popup resize top-24 left-24 bg-white shadow-lg overflow-hidden">
             <div className="popup-header cursor-grab flex flex-row gap-2 justify-end items-center">
               <img
                 src="/images/yellow.png"
