@@ -453,3 +453,14 @@ span {
   transform: scale(1);
   transform-style: preserve-3d;
 }
+
+.scroll-icon {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  animation: bounce 1.5s infinite;
+  height: 20px;
+  width: 20px;
+}
