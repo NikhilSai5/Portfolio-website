@@ -233,6 +233,11 @@ svg {
   cursor: pointer;
 }
 
+.left-bottom h3:hover {
+  color: #2362cf;
+  cursor: pointer;
+}
+
 .left-top {
   height: 60px;
   width: auto;
