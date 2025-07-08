@@ -21,7 +21,7 @@ const Computer = ({
       >
         <Html
           wrapperClass="laptop "
-          position={[5.5, 10, 0.2]}
+          position={[5.5, 10, 0]}
           transform
           occlude
           distanceFactor={10}
@@ -37,13 +37,6 @@ const Computer = ({
               className="space-tab overflow-hidden "
             />
           </div>
-          {/* <div
-            className="space-tab overflow-hidden iframe-container"
-            onPointerEnter={handleComputerPointerEnter}
-            onPointerLeave={handleComputerPointerLeave}
-          >
-            <Portfolio />
-          </div> */}
         </Html>
       </primitive>
     </group>
