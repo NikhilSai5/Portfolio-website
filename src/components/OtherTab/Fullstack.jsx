@@ -101,7 +101,7 @@ const Fullstack = () => {
             <img src="/images/project/AP/1.jpg" alt="Slide 1" />
             <img src="/images/project/AP/3.jpg" alt="Slide 2" className="bt" />
 
-            <span className="project-title">Shop Nest</span>
+            <span className="project-title">ShopNest</span>
             <span>
               The project focused on developing an interactive e-commerce
               platform that combines traditional fixed-price purchases with a
