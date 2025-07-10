@@ -37,9 +37,15 @@ const Blockchain = () => {
 
           <br />
 
-          <img src="/images/project/FAI/1.jpg" alt="Slide 1" />
-          <img src="/images/project/FAI/3.jpg" alt="Slide 2" />
-          <img src="/images/project/FAI/2.jpg" alt="Slide 2" className="bt" />
+          <img src="/images/project/healthverse/m1.jpg" alt="Slide 1" />
+          <img src="/images/project/healthverse/m2.jpg" alt="Slide 2" />
+          <img
+            src="/images/project/healthverse/m3.jpg"
+            alt="Slide 2"
+            className="bt"
+          />
+
+          <br />
         </div>
       </div>
     </>
