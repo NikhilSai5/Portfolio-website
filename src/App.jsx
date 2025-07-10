@@ -131,7 +131,16 @@ function App() {
   const [speed, setSpeed] = useState();
   const [showScrollGif, setShowScrollGif] = useState(true);
   const [cameraZPosition, setCameraZPosition] = useState(0);
-  const [isHoveringComputer, setIsHoveringComputer] = useState(false); // Add this state
+  const [isHoveringComputer, setIsHoveringComputer] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const mobileRegex = /iphone|android|ipad|ipod|blackberry|windows phone/;
+    if (mobileRegex.test(userAgent) || window.innerWidth < 768) {
+      setIsMobile(true);
+    }
+  }, []);
 
   const handleComputerPointerEnter = () => {
     setIsHoveringComputer(true); // Set hovering state to true
@@ -214,6 +223,31 @@ function App() {
     loadModels();
   }, []);
 
+  if (isMobile) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+          backgroundColor: "#000",
+          color: "#fff",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          fontFamily: "sans-serif",
+          textAlign: "center",
+          padding: "20px",
+        }}
+      >
+        <h2>⚠️ Mobile Version Coming Soon</h2>
+        <p>
+          For the best experience, please open this 3D portfolio on a
+          <strong> desktop or laptop</strong>.
+        </p>
+      </div>
+    );
+  }
   return (
     <>
       {loading && <LoadingScreen />}
