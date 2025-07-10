@@ -80,11 +80,13 @@
 import React, { useState, useEffect } from "react";
 import { Commet } from "react-loading-indicators";
 import { useProgress } from "@react-three/drei";
+import GradientCursor from "./GradientCursor";
 
 const LoadingScreen = () => {
   const { progress } = useProgress();
   const [phrase, setPhrase] = useState("");
   const [animate, setAnimate] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const phrases = [
     "Initializing environment...",
@@ -123,12 +125,20 @@ const LoadingScreen = () => {
   }, [animate]);
 
   return (
-    <div className="h-full w-full bg-black flex justify-center items-center gap-[20px] absolute z-[9999]">
-      <div style={styles.overlay}>
+    <div className="h-full w-full bg-black flex justify-center items-center gap-[20px] absolute z-[9999] ">
+      <div
+        style={styles.overlay}
+        onMouseOver={() => {
+          setIsActive(true);
+        }}
+        onMouseLeave={() => {
+          setIsActive(false);
+        }}
+      >
         <Commet color="#ffffff" size="medium" text="" textColor="#000000" />
-        <p style={styles.text}>Loading {Math.floor(progress)}%</p>
+        <p style={styles.text1}>Loading {Math.floor(progress)}%</p>
         <p
-          style={styles.text}
+          style={styles.text2}
           className={`font-medium text-2xl mt-[10px] transition-opacity duration-500 ${
             animate ? "opacity-0" : "opacity-100"
           }`}
@@ -136,6 +146,7 @@ const LoadingScreen = () => {
           {phrase}
         </p>
       </div>
+      <GradientCursor isActive={isActive} />
     </div>
   );
 };
@@ -143,19 +154,31 @@ const LoadingScreen = () => {
 const styles = {
   overlay: {
     position: "relative",
-    width: "100%",
+    width: "auto",
     height: "auto",
-    backgroundColor: "#000000",
+    backgroundColor: "transparent",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 9999,
+    padding: "100px",
   },
-  text: {
+  text1: {
+    margin: "20px 0 20px 0",
+    color: "white",
+    width: "auto",
+    height: "auto",
+    backgroundColor: "transparent",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 9999,
+  },
+  text2: {
     margin: 0,
     color: "white",
-    width: "100%",
+    width: "auto",
     height: "auto",
     backgroundColor: "transparent",
     display: "flex",
