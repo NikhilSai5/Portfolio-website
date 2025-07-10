@@ -117,7 +117,7 @@ const LoadingScreen = () => {
 
   useEffect(() => {
     if (animate) {
-      const timer = setTimeout(() => setAnimate(false), 100);
+      const timer = setTimeout(() => setAnimate(false), 10);
       return () => clearTimeout(timer);
     }
   }, [animate]);
