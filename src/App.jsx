@@ -217,65 +217,67 @@ function App() {
   return (
     <>
       {loading && <LoadingScreen />}
-      <Canvas>
-        <PerspectiveCamera ref={cameraRef} position={[0, 0, 0]}>
-          <CameraMovement
-            cameraRef={cameraRef}
-            isHoveringComputer={isHoveringComputer}
-          />
-          <Sky
-            sunPosition={[0, 0, 0]}
-            turbidity={10}
-            rayleigh={0.3}
-            inclination={0}
-            distance={450000}
-          />
-          <Background scrollTriggered={scrollTriggered} speed={speed} />
-          <group position={[0, 0, 0]}>
-            <Text
-              position={[0, 0.8, 0]}
-              fontSize={0.5}
-              color="white"
-              font="/fonts/Satoshi-Variable.ttf"
-            >
-              HELLO,
-            </Text>
-            <Text
-              position={[0, 0, 0]}
-              fontSize={0.7}
-              fontWeight={800}
-              color="white"
-              font="/fonts/Satoshi-Variable.ttf"
-            >
-              I'M NIKHIL SAI MANAM
-            </Text>
-            <Text
-              position={[0, -0.9, 0]}
-              fontSize={0.3}
-              fontWeight={"normal"}
-              color="white"
-              font="/fonts/Satoshi-Light.ttf"
-            >
-              Full Stack and Web 3 Developer
-            </Text>
-          </group>
-          <Astroid2 position={[-7, 1, -200]} />
-          <Ceres position={[-100, -51, -180]} />
-          <SpaceShip position={[-4.5, 4, -5]} />
-          <Astroid3 position={[6, 3, -207]} />
-          <SpaceStation position={[-54, 20, -240]} />
-          <SpaceShip2 position={[6.5, -1.5, 0]} />
-          <Computer
-            position={[0, -0.9, -200]}
-            handleComputerPointerEnter={handleComputerPointerEnter}
-            handleComputerPointerLeave={handleComputerPointerLeave}
-            cameraRef={cameraRef}
-          />
-          <AstroidField position={[0, -3, -70]} />
-        </PerspectiveCamera>
-        <OrbitControlsWithReset cameraRef={cameraRef} />
-      </Canvas>
-
+      <Suspense fallback={<LoadingScreen />}>
+        <Canvas>
+          <PerspectiveCamera ref={cameraRef} position={[0, 0, 0]}>
+            <CameraMovement
+              cameraRef={cameraRef}
+              isHoveringComputer={isHoveringComputer}
+            />
+            <Sky
+              sunPosition={[0, 0, 0]}
+              turbidity={10}
+              rayleigh={0.3}
+              inclination={0}
+              distance={450000}
+            />
+            <Background scrollTriggered={scrollTriggered} speed={speed} />
+            <group position={[0, 0, 0]}>
+              <Text
+                position={[0, 0.8, 0]}
+                fontSize={0.5}
+                color="white"
+                font="/fonts/Satoshi-Variable.ttf"
+              >
+                HELLO,
+              </Text>
+              <Text
+                position={[0, 0, 0]}
+                fontSize={0.7}
+                fontWeight={800}
+                color="white"
+                font="/fonts/Satoshi-Variable.ttf"
+              >
+                I'M NIKHIL SAI MANAM
+              </Text>
+              <Text
+                position={[0, -0.9, 0]}
+                fontSize={0.3}
+                fontWeight={"normal"}
+                color="white"
+                font="/fonts/Satoshi-Light.ttf"
+              >
+                Full Stack and Web 3 Developer
+              </Text>
+            </group>
+            <Astroid2 position={[-7, 1, -200]} />
+            <Ceres position={[-100, -51, -180]} />
+            <SpaceShip position={[-4.5, 4, -5]} />
+            <Astroid3 position={[6, 3, -207]} />
+            <SpaceStation position={[-54, 20, -240]} />
+            <SpaceShip2 position={[6.5, -1.5, 0]} />
+            <Computer
+              position={[0, -0.9, -200]}
+              handleComputerPointerEnter={handleComputerPointerEnter}
+              handleComputerPointerLeave={handleComputerPointerLeave}
+              cameraRef={cameraRef}
+            />
+            <AstroidField position={[0, -3, -70]} />
+          </PerspectiveCamera>
+          <OrbitControlsWithReset cameraRef={cameraRef} />
+        </Canvas>
+      </Suspense>
+      {/* <LoadingScreen /> */}
       {cameraZPosition === 0 && (
         <div className="scroll-icon">
           <FaArrowDown size={10} color="#ffffff" />
