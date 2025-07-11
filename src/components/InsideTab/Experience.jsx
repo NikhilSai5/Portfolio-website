@@ -31,7 +31,7 @@ const Experience = () => {
               </li>
               <li>
                 Designed and implemented the <strong>messaging schema</strong>{" "}
-                to support in-app communication between riders and drivers.
+                to support in-app Communication between riders and drivers.
               </li>
             </ul>
           </span>
