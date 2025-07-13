@@ -56,7 +56,7 @@ const AI = () => {
             progress. The entire system is built using the MERN stack, Tailwind
             CSS for responsive UI, Flask and LangChain for backend AI workflows,
             and a variety of other cutting-edge tools. This project reflects my
-            passion for blending full-stack development with AI to create
+            passion for blending full stack development with AI to create
             intelligent, user-centered education platforms.
             <br />
           </span>
