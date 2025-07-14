@@ -275,6 +275,4 @@ const styles = {
   },
 };
 
-// Static stars - no CSS animations needed
-
 export default LoadingScreen;
