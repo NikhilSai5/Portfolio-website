@@ -142,6 +142,12 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (cameraRef.current) {
+      cameraRef.current.position.set(0, 0, 0);
+    }
+  }, []);
+
   const handleComputerPointerEnter = () => {
     setIsHoveringComputer(true); // Set hovering state to true
     gsap.to(cameraRef.current.position, {
